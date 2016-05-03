@@ -1,0 +1,19 @@
+.frost-pods-demo {
+	width: 100%;
+	height: 100%;
+}
+
+.frost-pods-demo .controls {
+	width: 220px;
+	padding: 20px;
+	display: (flex);
+	flex-direction: (column);
+}
+
+.frost-pods-demo .controls .frost-button:first-child {
+	margin-top: 0;
+}
+
+.frost-pods-demo .controls .frost-button {
+	margin-top: 10px;
+}

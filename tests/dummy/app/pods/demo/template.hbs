@@ -1,2 +1,14 @@
-frost-pods testbed
-{{frost-pods}}
+<div class="dummy-body">
+  <div class="dummy-content">
+    <div class="frost-pods-demo">
+      <div class="controls">
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'map')}}Map pods{{/frost-button}}
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'node')}}Node pods{{/frost-button}}
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'search')}}Search pods{{/frost-button}}
+      </div>
+      {{dummy-map-pods isPodVisible=isMapPodVisible}}
+      {{dummy-node-pods isPodVisible=isNodePodVisible}}
+      {{dummy-search-pods isPodVisible=isSearchPodVisible records=dummyRecords}}
+    </div>
+  </div>
+</div>
