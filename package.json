@@ -46,7 +46,8 @@
     "ember-try": "^0.2.0",
     "eslint": "2.9.0",
     "eslint-config-frost-standard": "^2.0.0",
-    "loader.js": "^4.0.0"
+    "loader.js": "^4.0.0",
+    "ember-frost-list": "^0.6.0"
   },
   "keywords": [
     "ember-addon",
