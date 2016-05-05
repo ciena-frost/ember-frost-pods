@@ -2,13 +2,12 @@
 
 }
 
-.dummy-search-pods .pod.context {
-	width: 400px;
-	height: 400px;
+.dummy-node-pods .pod.context {
+
 	display: (flex);
 	flex-direction: (column);
 }
 
-.dummy-search-pods .pod.context .frost-list {
+.dummy-node-pods .pod.context .frost-list {
 	flex: (1);
 }

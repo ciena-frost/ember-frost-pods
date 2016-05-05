@@ -5,10 +5,12 @@
         {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'map')}}Map pods{{/frost-button}}
         {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'node')}}Node pods{{/frost-button}}
         {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'search')}}Search pods{{/frost-button}}
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'detail')}}Detail pods{{/frost-button}}
       </div>
       {{dummy-map-pods isPodVisible=isMapPodVisible}}
       {{dummy-node-pods isPodVisible=isNodePodVisible}}
       {{dummy-search-pods isPodVisible=isSearchPodVisible records=dummyRecords}}
+      {{dummy-detail-pods isPodVisible=isDetailPodVisible}}
     </div>
   </div>
 </div>

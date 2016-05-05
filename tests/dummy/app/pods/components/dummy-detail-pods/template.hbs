@@ -1,0 +1,146 @@
+{{#liquid-unless isPodVisible}} {{else}} {{#liquid-if podLayer.root class='liquid-pods'}}
+<div class="pod context">
+  <div class="header">
+    <div class="close">
+      <div class="frost-svg">
+        6500
+      </div>
+    </div>
+    <div class="title">
+      <div class="primary">Primary identifier
+        <div class="comment"> sub title</div>
+      </div>
+      <div class="secondary">Secondary identifier1</div>
+      <div class="secondary">Secondary identifier2</div>
+    </div>
+  </div>
+  <div class="session">
+    <div class="row">
+      <div class="property">
+        State1 | State2
+      </div>
+      <div class="property">
+        <span class="critical">5C</span>
+        <span class="major">5M</span>
+        <span class="minor">7m</span>
+        <span class="warning">5w</span>
+      </div>
+    </div>
+  </div>
+  <div class="session">
+    <div class="row">
+      <div class="property">
+        <div class="title">IP address</div>
+        <div class="value">192.0.1.2</div>
+      </div>
+      <div class="property" >
+        <div class="title">Lat, Long</div>
+        <div class="value">42.66, -73.76</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="property">
+        <div class="title">Address</div>
+        <div class="value">Undefined</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="bottom">
+    <div class="row">{{#frost-button class='small secondary text' }}Details{{/frost-button}} </div>
+    <div class="row">{{#frost-button class='small secondary text' }}Related{{/frost-button}} </div>
+    <div class="row">{{#frost-button class='small secondary text' }}Actions{{/frost-button}} </div>
+  </div>
+</div>
+{{else liquid-if podLayer.alarms}}
+<div class="pod context">
+  <div class="header">
+    <div class="title">
+      <div class="breadcrumb action">
+        {{#each podNames as |stack|}}
+        <span {{action (action 'changePod' stack)}}>{{stack}}/</span> {{/each}}
+      </div>
+      <div class="primary">{{podLayerAlias}}</div>
+    </div>
+  </div>
+  <div class="header">
+    {{#frost-button class='close tertiary icon' onClick=(action 'closePod')}} {{frost-icon icon='frost/chevron'}} {{/frost-button}}
+    <div class="title">
+
+      <div class="primary">Child title</div>
+      <div class="secondary">Subtext</div>
+    </div>
+  </div>
+  <div class="body">
+    Child context
+  </div>
+</div>
+
+
+{{/liquid-if}} {{#liquid-if podLayer.alarmsT1 class='liquid-pods'}}
+<div class="pod context">
+  <div class="header">
+    <div class="title">
+      <div class="breadcrumb action">
+        {{#each podNames as |stack|}}
+        <span {{action (action 'changePod' stack)}}>{{stack}}/</span> {{/each}}
+      </div>
+      <div class="primary">{{podLayerAlias}}</div>
+    </div>
+  </div>
+</div>
+<div class="pod context">
+  <div class="header">
+    {{#frost-button class='close tertiary icon' onClick=(action 'closePod')}} {{frost-icon icon='frost/chevron'}} {{/frost-button}}
+    <div class="title">
+      <div class="primary">Child title</div>
+      <div class="secondary">Subtext</div>
+    </div>
+  </div>
+  <div class="body">
+    Child context
+  </div>
+</div>
+<div class="pod context">
+  <div class="header">
+    <div class="title">
+      <div class="primary">Description</div>
+      <div class="secondary">Oh furniture acuteness suspected continual
+      </div>
+    </div>
+  </div>
+</div>
+{{/liquid-if}} {{#liquid-if podLayer.alarmsT2 class='liquid-pods'}}
+<div class="pod context">
+  <div class="header">
+    <div class="title">
+      <div class="breadcrumb action">
+        {{#each podNames as |stack|}}
+        <span {{action (action 'changePod' stack)}}>{{stack}}/</span> {{/each}}
+      </div>
+      <div class="primary">{{podLayerAlias}}</div>
+    </div>
+  </div>
+</div>
+<div class="pod context">
+  <div class="header">
+    {{#frost-button class='close tertiary icon' onClick=(action 'closePod')}} {{frost-icon icon='frost/chevron'}} {{/frost-button}}
+    <div class="title">
+      <div class="primary">Child title</div>
+      <div class="secondary">Subtext</div>
+    </div>
+  </div>
+  <div class="body">
+    Child context
+  </div>
+</div>
+<div class="pod context">
+  <div class="header">
+    <div class="title">
+      <div class="primary">Description</div>
+      <div class="secondary">Oh furniture acuteness suspected continual
+      </div>
+    </div>
+  </div>
+</div>
+{{/liquid-if}} {{/liquid-unless}}
