@@ -7,10 +7,15 @@ var options = {
   loaderExclusions: [],
   enableCoverage: true,
   cliOptions: {
-    reporters: ['json'],
-    autostart: true
-  }
+    outputFile: 'coverage/lcov.info',
+    renamer: function (fileName) {
+      return fileName.replace('ember-frost-pods', 'addon') + '.js'
+    }
+  },
+  reporters: ['lcov', 'json'],
+  autostart: true
 }
+
 if (typeof exports === 'undefined') {
   blanket.options(options)
 } else {
