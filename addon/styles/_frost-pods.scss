@@ -69,8 +69,14 @@ $frost-color-warn-1: #7D85B2;
 	color: $frost-color-grey-1;
 }
 
+.frost-pods .pod.context > .header .title .primary .comment {
+  display: inline-block;
+  font-size: $frost-font-s;
+color: $frost-color-grey-5;
+}
+
 .frost-pods .pod.context > .header .title .secondary {
-	padding: 5px 15px 0 15px;
+	padding: 1px 15px 0 15px;
 	font-size: $frost-font-s;
 	color: $frost-color-grey-4;
 }

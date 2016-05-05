@@ -25,6 +25,10 @@ export default Ember.Controller.extend({
     return this.get('isPodVisible').call(this, 'search')
   }),
 
+  isDetailPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+    return this.get('isPodVisible').call(this, 'detail')
+  }),
+
   actions: {
     // TODO Revert to the initial pod on a canvas click
 

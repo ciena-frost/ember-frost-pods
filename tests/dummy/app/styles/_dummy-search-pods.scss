@@ -5,10 +5,10 @@
 .dummy-search-pods .pod.context {
 	width: 400px;
 	height: 400px;
-	@include display(flex);
-	@include flex-direction(column);
+	display: (flex);
+    flex-directionz: (column);
 }
 
 .dummy-search-pods .pod.context .frost-list {
-	@include flex(1);
+	flex: (1);
 }
