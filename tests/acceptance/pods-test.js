@@ -15,31 +15,31 @@ import destroyApp from '../helpers/destroy-app'
 
 /* eslint-disable */
 describe('Acceptance: PodsTest', function () {
-  let application
-  beforeEach(function () {
-    application = startApp()
-  })
+    let application
+    beforeEach(function () {
+      application = startApp()
+    })
 
-  afterEach(function () {
-    destroyApp(application)
-  })
+    afterEach(function () {
+      destroyApp(application)
+    })
 
-  it('can visit /', function () {
-    visit('/')
-    click('#detailPodsId')
-    andThen(function () {
-      click('#openNewPod');
+    it('can visit /', function (done) {
+      visit('/')
+      click('#detailPodsId')
       andThen(function () {
-        click('#testButtonId');
+        click('#openNewPod');
         andThen(function () {
-          click('#closePodId');
+          click('#testButtonId');
+          andThen(function () {
+            click('#closePodId');
+            andThen(function () {
+              expect(currentPath()).to.equal('demo')
+              done();
+            })
+          })
         })
       })
     })
-
-    andThen(function () {
-      expect(currentPath()).to.equal('demo')
-    })
   })
-})
-/* eslint-enable */
+  /* eslint-enable */
