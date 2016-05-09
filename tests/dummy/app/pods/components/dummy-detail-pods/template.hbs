@@ -1,3 +1,4 @@
+{{#liquid-unless isPodVisible}} {{else}}
 {{#liquid-if podLayer.root class='liquid-pods'}}
 <div class="pod context">
   <div class="header">
@@ -46,7 +47,7 @@
     </div>
     <div class="row">
       <div class="property">
-        <div class="link" {{action (action 'openPod' 'subPod' 'Primary identifier')}}>Attributes</div>
+        <div class="link" id='openNewPod' {{action (action 'openPod' 'subPod' 'Primary identifier')}}>Attributes</div>
       </div>
     </div>
 
@@ -54,7 +55,7 @@
   <div class="bottom">
     <div class="row">{{#frost-button class='small secondary text' }}Details{{/frost-button}} </div>
     <div class="row">{{#frost-button class='small secondary text' }}Related{{/frost-button}} </div>
-    <div class="row">{{#frost-button class='small secondary text' }}Actions{{/frost-button}} </div>
+    <div class="row">{{#frost-button class='small secondary text' id='closePodId' onClick=(action 'closePod')}}Actions{{/frost-button}} </div>
   </div>
 </div>
 {{else liquid-if podLayer.subPod}}
@@ -63,7 +64,7 @@
     <div class="close">
       <div class="frost-test">
         {{#each podNames as |stack|}}
-        <span {{action (action 'changePod' stack)}}>{{stack}}/</span> {{/each}}
+        <span id= "testButtonId"  {{action (action 'changePod' stack)}}>{{stack}}/</span> {{/each}}
       </div>
     </div>
     <div class="title">
@@ -90,7 +91,7 @@
     </div>
   </div>
   <div class="bottom">
-    <div class="row">{{#frost-button class='small secondary text' }}Details{{/frost-button}} </div>
+    <div class="row">{{#frost-button class='small secondary text' onClick=(action 'changePod' stack)}}Details{{/frost-button}} </div>
     <div class="row">{{#frost-button class='small secondary text' }}Related{{/frost-button}} </div>
     <div class="row">{{#frost-button class='small secondary text' }}Actions{{/frost-button}} </div>
   </div>
