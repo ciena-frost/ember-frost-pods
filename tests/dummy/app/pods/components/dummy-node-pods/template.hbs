@@ -1,6 +1,6 @@
-{{#liquid-unless isPodVisible}}
+{{#liquid-if isPodVisible}}
 
-{{else}}
+
 	{{#liquid-if podLayer.root class='liquid-pods'}}
         <div class="pod context">
             <div class="header">
@@ -191,4 +191,4 @@
 
 
 
-	{{/liquid-unless}}
+	{{/liquid-if}}
