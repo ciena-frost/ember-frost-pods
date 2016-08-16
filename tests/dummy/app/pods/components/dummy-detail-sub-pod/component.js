@@ -3,5 +3,5 @@ import layout from './template'
 
 export default FrostPods.extend({
   layout: layout,
-  classNames: ['top', 'right', 'dummy-detail-pods']
+  classNames: ['top', 'right', 'dummy-detail-pods', 'pod', 'context']
 })

@@ -1,0 +1,69 @@
+{{yield}}
+{{#liquid-if isPodVisible}}
+  {{#liquid-if podLayer.root class='liquid-pods'}}
+    <div class="pod context">
+      <div class="header">
+        <div class="close">
+          <div class="icon">
+            {{frost-icon
+              icon=icon
+            }}
+          </div>
+        </div>
+        <div class="title">
+          <div class="primary">Primary identifier
+            <div class="comment"> sub title</div>
+          </div>
+          <div class="secondary">Secondary identifier1</div>
+          <div class="secondary">Secondary identifier2</div>
+        </div>
+      </div>
+      <div class="session">
+        <div class="row">
+          <div class="property">
+            State1 | State2
+          </div>
+          <div class="property">
+            <span class="critical">5C</span>
+            <span class="major">5M</span>
+            <span class="minor">7m</span>
+            <span class="warning">5w</span>
+          </div>
+        </div>
+      </div>
+      <div class="session with-bottom">
+        <div class="row">
+          <div class="property">
+            <div class="title">IP address</div>
+            <div class="value">192.0.1.2</div>
+          </div>
+          <div class="property" >
+            <div class="title">Lat, Long</div>
+            <div class="value">42.66, -73.76</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="property">
+            <div class="title">Address</div>
+            <div class="value">Undefined</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="property">
+            <div class="link" id='openNewPod' {{action (action 'openPod' 'subPod' 'Primary identifier')}}>Attributes</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="bottom">
+        <div class="row">{{#frost-button class='small secondary text' }}Details{{/frost-button}} </div>
+        <div class="row">{{#frost-button class='small secondary text' }}Related{{/frost-button}} </div>
+        <div class="row">{{#frost-button class='small secondary text' id='closePodId' onClick=(action 'closePod')}}Actions{{/frost-button}} </div>
+      </div>
+    </div>
+  {{else liquid-if podLayer.subPod }}
+    {{#yield-slot 'sub-pod' (block-params (hash podNames=podNames changePod=(action 'changePod'))) parentView=this }}
+      {{yield}}
+    {{/yield-slot}}
+  {{/liquid-if}}
+{{/liquid-if}}
