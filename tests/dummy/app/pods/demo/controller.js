@@ -8,27 +8,27 @@ const {
 export default Controller.extend({
   dummyRecords: computed.alias('model'),
   orientation: 'vertical',
-  listItems: A([
-    Object.create({
-      title: 'Item',
-      description: 'Content'
-    }),
-    Object.create({
-      title: 'Item',
-      description: 'Content'
-    })
-  ]),
   podsVisibility: A(),
   detailActions: A([
     {
       label: 'Details',
-      action: 'do_this',
-      className: 'small secondary text'
+      action: function () {
+
+      },
+      priority: 'primary'
     },
     {
       label: 'Rotate',
-      action: 'switchOrientation',
-      className: 'small tertiary text'
+      action: function () {
+        let orientation = this.get('orientation')
+        this.set(
+          'orientation',
+          orientation === 'vertical' ?
+            'horizontal'
+            : 'vertical'
+        )
+      },
+      priority: 'secondary'
     }
   ]),
   isPodVisible (pod) {
@@ -77,16 +77,6 @@ export default Controller.extend({
     },
     tabSelected (tab) {
       this.set('selectedTab', tab)
-    },
-    do_this (action) {
-      console.log(action)
-    },
-    switchOrientation () {
-      this.set('orientation',
-        this.get('orientation') === 'vertical' ? 'horizontal' : 'vertical')
-    },
-    selected (selected) {
-      console.log(selected)
     }
   }
 })

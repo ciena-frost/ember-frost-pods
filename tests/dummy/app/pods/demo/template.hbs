@@ -32,22 +32,16 @@
         <div class="row">
           {{#frost-list
             class='frost-flex-1'
-            onSelect=(action 'selected')
-            records=listItems
+            records=dummyRecords
             selections=selectedItems
             as |item|
             }}
               <div class='item'>
                 <div class='title'>
-                  {{item.title}}
+                  {{item.alias}}
                 </div>
-                {{item.description}}
               </div>
           {{/frost-list}}
-        </div>
-        <div class="row">
-          <div class="property">
-          </div>
         </div>
       {{/frost-details-pod}}
     </div>

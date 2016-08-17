@@ -5,7 +5,7 @@
         {{#if icon}}
           <div class="close">
             <div class='icon'>
-              {{frost-icon icon=icon}}
+              {{frost-icon icon=icon pack=pack}}
             </div>
           </div>
         {{/if}}
@@ -19,17 +19,20 @@
           </div>
         </div>
       </div>
-      {{yield this (hash
-        openPod=(action 'openPod')
-        closePod=(action 'closePod')
-        changePod=(action 'changePod')
-      )}}
+      <div class='content'>
+        {{yield this (hash
+          openPod=(action 'openPod')
+          closePod=(action 'closePod')
+          changePod=(action 'changePod')
+        )}}
+      </div>
       <div class="bottom">
         {{#each menuActions as |item|}}
           <div class="row">
             {{#frost-button
-              class=item.className
-              onClick=(action 'sendAction' item.action)
+              class='text small'
+              priority=item.priority
+              onClick=(action item.action)
             }}
               {{item.label}}
             {{/frost-button}}

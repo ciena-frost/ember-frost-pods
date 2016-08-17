@@ -10,6 +10,7 @@ export default FrostPods.extend({
     'frost-details-pod'
   ],
   icon: 'round-add',
+  pack: 'frost',
   actions: {
     sendAction (action) {
       this.set('action', action)
