@@ -3,12 +3,11 @@
     <div class="pod context">
       <div class="header">
         {{#if icon}}
-
-        <div class="close">
-          <div class='icon'>
-            {{frost-icon icon=icon}}
+          <div class="close">
+            <div class='icon'>
+              {{frost-icon icon=icon}}
+            </div>
           </div>
-        </div>
         {{/if}}
 
         <div class="title">
@@ -28,7 +27,12 @@
       <div class="bottom">
         {{#each menuActions as |item|}}
           <div class="row">
-            {{#frost-button class=item.className onClick=(action 'sendAction' item.action)}}{{item.label}}{{/frost-button}}
+            {{#frost-button
+              class=item.className
+              onClick=(action 'sendAction' item.action)
+            }}
+              {{item.label}}
+            {{/frost-button}}
           </div>
         {{/each}}
       </div>

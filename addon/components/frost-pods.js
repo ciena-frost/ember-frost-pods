@@ -1,9 +1,7 @@
 import Ember from 'ember'
 import _ from 'lodash/lodash'
 
-import SlotsMixin from 'ember-block-slots'
-
-export default Ember.Component.extend(SlotsMixin, {
+export default Ember.Component.extend({
   classNames: ['frost-pods'],
   classNameBindings: ['orientation'],
 
