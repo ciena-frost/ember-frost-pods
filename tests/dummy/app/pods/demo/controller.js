@@ -3,22 +3,30 @@ const {
   Object,
   Controller,
   computed,
-  A
+  A,
+  inject
 } = Ember
 export default Controller.extend({
+  notifier: inject.service(),
   dummyRecords: computed.alias('model'),
   orientation: 'vertical',
   podsVisibility: A(),
   detailActions: A([
     {
-      label: 'Details',
+      text: 'Details',
+      priority: 'primary',
       action: function () {
-
-      },
-      priority: 'primary'
+        this.get('targetObject.notifier').addNotification({
+          message: 'Details was clicked!',
+          type: 'success',
+          autoClear: true,
+          clearDuration: 1000
+        })
+      }
     },
     {
-      label: 'Rotate',
+      text: 'Rotate',
+      priority: 'secondary',
       action: function () {
         let orientation = this.get('orientation')
         this.set(
@@ -27,8 +35,7 @@ export default Controller.extend({
             'horizontal'
             : 'vertical'
         )
-      },
-      priority: 'secondary'
+      }
     }
   ]),
   isPodVisible (pod) {
@@ -47,11 +54,11 @@ export default Controller.extend({
     return this.get('isPodVisible').call(this, 'node')
   }),
 
-  isSearchPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isSearchPodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'search')
   }),
 
-  isDetailPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isDetailPodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'detail')
   }),
 
