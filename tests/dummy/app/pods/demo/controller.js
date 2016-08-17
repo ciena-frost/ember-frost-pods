@@ -1,6 +1,5 @@
 import Ember from 'ember'
 const {
-  Object,
   Controller,
   computed,
   A,
@@ -31,8 +30,8 @@ export default Controller.extend({
         let orientation = this.get('orientation')
         this.set(
           'orientation',
-          orientation === 'vertical' ?
-            'horizontal'
+          orientation === 'vertical'
+            ? 'horizontal'
             : 'vertical'
         )
       }

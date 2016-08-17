@@ -1,5 +1,4 @@
-import Ember from 'ember';
-import layout from '../templates/components/frost-details-pod';
+import layout from '../templates/components/frost-details-pod'
 import FrostPods from './frost-pods'
 
 export default FrostPods.extend({
@@ -10,11 +9,5 @@ export default FrostPods.extend({
     'frost-details-pod'
   ],
   icon: 'round-add',
-  pack: 'frost',
-  actions: {
-    sendAction (action) {
-      this.set('action', action)
-      this.sendAction('action')
-    }
-  }
-});
+  pack: 'frost'
+})

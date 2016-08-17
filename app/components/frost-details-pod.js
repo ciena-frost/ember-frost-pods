@@ -1,1 +1,1 @@
-export { default } from 'ember-frost-pods/components/frost-details-pod';
+export { default } from 'ember-frost-pods/components/frost-details-pod'
