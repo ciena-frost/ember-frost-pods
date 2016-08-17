@@ -1,24 +1,17 @@
-import { moduleForComponent, test } from 'ember-qunit'
+import {expect} from 'chai'
+import {describeComponent, it} from 'ember-mocha'
 import hbs from 'htmlbars-inline-precompile'
 
-moduleForComponent('frost-details-pod', 'Integration | Component | frost details pod', {
-  integration: true
-})
-
-test('it renders', function (assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
-
-  this.render(hbs`{{frost-details-pod}}`)
-
-  assert.equal(this.$().text().trim(), '')
-
-  // Template block usage:"
-  this.render(hbs`
-    {{#frost-details-pod}}
-      template block text
-    {{/frost-details-pod}}
-  `)
-
-  assert.equal(this.$().text().trim(), 'template block text')
-})
+describeComponent(
+  'frost-details-pod',
+  'Integration: EmberFrostDetailsPodComponent',
+  {
+    integration: true
+  },
+  function () {
+    it('renders', function () {
+      this.render(hbs`{{frost-details-pod}}`)
+      expect(this.$()).to.have.length(1)
+    })
+  }
+)

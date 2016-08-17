@@ -24,21 +24,11 @@ describe('Acceptance: PodsTest', function () {
       destroyApp(application)
     })
 
-    it('can visit /', function (done) {
+    it('can visit /', function () {
       visit('/')
       click('#detailPodsId')
       andThen(function () {
-        click('#openNewPod');
-        andThen(function () {
-          click('#testButtonId');
-          andThen(function () {
-            click('#closePodId');
-            andThen(function () {
-              expect(currentPath()).to.equal('demo')
-              done();
-            })
-          })
-        })
+        expect(currentPath()).to.equal('demo')
       })
     })
   })
