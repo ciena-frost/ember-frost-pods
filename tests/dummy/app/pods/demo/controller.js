@@ -1,10 +1,36 @@
 import Ember from 'ember'
-
-export default Ember.Controller.extend({
-  dummyRecords: Ember.computed.alias('model'),
-
-  podsVisibility: Ember.A(),
-
+const {
+  Object,
+  Controller,
+  computed,
+  A
+} = Ember
+export default Controller.extend({
+  dummyRecords: computed.alias('model'),
+  orientation: 'vertical',
+  listItems: A([
+    Object.create({
+      title: 'Item',
+      description: 'Content'
+    }),
+    Object.create({
+      title: 'Item',
+      description: 'Content'
+    })
+  ]),
+  podsVisibility: A(),
+  detailActions: A([
+    {
+      label: 'Details',
+      action: 'do_this',
+      className: 'small secondary text'
+    },
+    {
+      label: 'Rotate',
+      action: 'switchOrientation',
+      className: 'small tertiary text'
+    }
+  ]),
   isPodVisible (pod) {
     let podVisibility = this.get('podsVisibility').findBy('id', pod)
     if (podVisibility === undefined) {
@@ -13,11 +39,11 @@ export default Ember.Controller.extend({
     return podVisibility.get('isPodVisible')
   },
 
-  isMapPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isMapPodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'map')
   }),
 
-  isNodePodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isNodePodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'node')
   }),
 
@@ -51,6 +77,16 @@ export default Ember.Controller.extend({
     },
     tabSelected (tab) {
       this.set('selectedTab', tab)
+    },
+    do_this (action) {
+      console.log(action)
+    },
+    switchOrientation () {
+      this.set('orientation',
+        this.get('orientation') === 'vertical' ? 'horizontal' : 'vertical')
+    },
+    selected (selected) {
+      console.log(selected)
     }
   }
 })

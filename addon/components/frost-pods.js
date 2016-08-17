@@ -5,6 +5,9 @@ import SlotsMixin from 'ember-block-slots'
 
 export default Ember.Component.extend(SlotsMixin, {
   classNames: ['frost-pods'],
+  classNameBindings: ['orientation'],
+
+  orientation: 'vertical',
 
   podNames: Ember.computed('podStack.[]', function () {
     return _.dropRight(this.get('podStack').map(function (entry) {

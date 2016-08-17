@@ -10,5 +10,11 @@ export default FrostPods.extend(SlotsMixin, {
     'right',
     'frost-details-pod'
   ],
-  icon: 'round-add'
+  icon: 'round-add',
+  actions: {
+    sendAction (action) {
+      this.set('action', action)
+      this.sendAction('action')
+    }
+  }
 });

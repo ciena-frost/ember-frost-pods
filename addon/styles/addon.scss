@@ -7,6 +7,16 @@ $frost-color-warn-1: #7D85B2;
 
 .frost-pods {
 	position: absolute;
+	&.vertical {
+		.pod.context {
+			flex-direction: column;
+		}
+	}
+	&.horizontal {
+		.pod.context {
+			flex-direction: row;
+		}
+	}
 }
 
 .frost-pods.top {
@@ -35,6 +45,7 @@ $frost-color-warn-1: #7D85B2;
 }
 
 .frost-pods .pod.context {
+	transition: flex-direction 0.2s ease;
 	padding-bottom: 15px;
 }
 

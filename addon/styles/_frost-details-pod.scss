@@ -6,7 +6,6 @@ $frost-color-warn-1: #7D85B2;
 .frost-details-pod {}
 .frost-details-pod .pod.context {
   display: (flex);
-  flex-direction: (column);
 }
 .frost-details-pod .pod.context .header {
   border-bottom: 1px solid $frost-color-lgrey-1;

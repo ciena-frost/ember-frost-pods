@@ -11,45 +11,44 @@
       {{dummy-node-pods isPodVisible=isNodePodVisible}}
       {{dummy-search-pods isPodVisible=isSearchPodVisible records=dummyRecords}}
 
-      {{#frost-details-pod isPodVisible=isDetailPodVisible}}
-        {{#block-slot 'sub-pod' as |ctx|}}
-        <div class='pod context'>
-        <div class="header">
-          <div class="close">
-            <div class="frost-test">
-              {{#each ctx.podNames as |stack|}}
-              <span id= "testButtonId"  {{action ctx.changePod stack}}>{{stack}}/</span> {{/each}}
-            </div>
+      {{#frost-details-pod
+        menuActions=detailActions
+        isPodVisible=isDetailPodVisible
+        title="Details Pod"
+        subTitle="Subtitle"
+        description="Small description"
+        orientation=orientation
+        as |pod actions|}}
+        <div class="row">
+          <div class="property">
+            <div class="title">IP address</div>
+            <div class="value">192.0.1.2</div>
           </div>
-          <div class="title">
-            <div class="primary">{{podLayerAlias}}</div>
-            <div class="secondary">Additional attributes</div>
-          </div>
-        </div>
-        <div class="session with-bottom">
-          <div class="row">
-            <div class="property">
-              <div class="title">IP address</div>
-              <div class="value">192.0.1.2</div>
-            </div>
-            <div class="property" >
-              <div class="title">Lat, Long</div>
-              <div class="value">42.66, -73.76</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="property">
-              <div class="title">Address</div>
-              <div class="value">Undefined</div>
-            </div>
+          <div class="property" >
+            <div class="title">Lat, Long</div>
+            <div class="value">42.66, -73.76</div>
           </div>
         </div>
-      </div>
-        <div class="bottom">
-          <div class="row">{{#frost-button class='small secondary text' }}Related{{/frost-button}} </div>
-          <div class="row">{{#frost-button class='small secondary text' }}Actions{{/frost-button}} </div>
+        <div class="row">
+          {{#frost-list
+            class='frost-flex-1'
+            onSelect=(action 'selected')
+            records=listItems
+            selections=selectedItems
+            as |item|
+            }}
+              <div class='item'>
+                <div class='title'>
+                  {{item.title}}
+                </div>
+                {{item.description}}
+              </div>
+          {{/frost-list}}
         </div>
-        {{/block-slot}}
+        <div class="row">
+          <div class="property">
+          </div>
+        </div>
       {{/frost-details-pod}}
     </div>
   </div>
