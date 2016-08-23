@@ -1,10 +1,42 @@
 import Ember from 'ember'
-
-export default Ember.Controller.extend({
-  dummyRecords: Ember.computed.alias('model'),
-
-  podsVisibility: Ember.A(),
-
+const {
+  Controller,
+  computed,
+  A,
+  inject
+} = Ember
+export default Controller.extend({
+  notifier: inject.service(),
+  dummyRecords: computed.alias('model'),
+  orientation: 'vertical',
+  podsVisibility: A(),
+  detailActions: A([
+    {
+      text: 'Details',
+      priority: 'primary',
+      action: function () {
+        this.get('targetObject.notifier').addNotification({
+          message: 'Details was clicked!',
+          type: 'success',
+          autoClear: true,
+          clearDuration: 1000
+        })
+      }
+    },
+    {
+      text: 'Rotate',
+      priority: 'secondary',
+      action: function () {
+        let orientation = this.get('orientation')
+        this.set(
+          'orientation',
+          orientation === 'vertical'
+            ? 'horizontal'
+            : 'vertical'
+        )
+      }
+    }
+  ]),
   isPodVisible (pod) {
     let podVisibility = this.get('podsVisibility').findBy('id', pod)
     if (podVisibility === undefined) {
@@ -13,19 +45,19 @@ export default Ember.Controller.extend({
     return podVisibility.get('isPodVisible')
   },
 
-  isMapPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isMapPodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'map')
   }),
 
-  isNodePodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isNodePodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'node')
   }),
 
-  isSearchPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isSearchPodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'search')
   }),
 
-  isDetailPodVisible: Ember.computed('podsVisibility.@each.isPodVisible', function () {
+  isDetailPodVisible: computed('podsVisibility.@each.isPodVisible', function () {
     return this.get('isPodVisible').call(this, 'detail')
   }),
 

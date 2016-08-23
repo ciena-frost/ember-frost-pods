@@ -3,6 +3,9 @@ import _ from 'lodash/lodash'
 
 export default Ember.Component.extend({
   classNames: ['frost-pods'],
+  classNameBindings: ['orientation'],
+
+  orientation: 'vertical',
 
   podNames: Ember.computed('podStack.[]', function () {
     return _.dropRight(this.get('podStack').map(function (entry) {
