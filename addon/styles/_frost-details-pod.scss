@@ -1,8 +1,4 @@
 @import 'node_modules/ember-frost-core/addon/styles/frost-theme';
-$frost-color-critical-1: #E52C2C;
-$frost-color-major-1: #EF8E00;
-$frost-color-minor-1: #DDD326;
-$frost-color-warn-1: #7D85B2;
 .frost-pods {
   &.frost-details-pod {
     .pod {
@@ -18,7 +14,7 @@ $frost-color-warn-1: #7D85B2;
               flex-direction: row;
               border-bottom: 1px solid $frost-color-lgrey-1;
               .property {
-                color: $frost-color-warn-1;
+                color: #7D85B2;
                 flex: 1;
                 .title {
                   font-size: $frost-font-s;

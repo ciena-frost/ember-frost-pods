@@ -8,6 +8,5 @@ export default FrostPods.extend({
     'right',
     'frost-details-pod'
   ],
-  icon: 'round-add',
   pack: 'frost'
 })
