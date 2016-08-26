@@ -1,27 +1,3 @@
-define('dummy/tests/acceptance/pods-test', ['exports', 'mocha', 'chai', 'dummy/tests/helpers/start-app', 'dummy/tests/helpers/destroy-app'], function (exports, _mocha, _chai, _dummyTestsHelpersStartApp, _dummyTestsHelpersDestroyApp) {
-
-  /* eslint-disable */
-  (0, _mocha.describe)('Acceptance: PodsTest', function () {
-    var application = undefined;
-    (0, _mocha.beforeEach)(function () {
-      application = (0, _dummyTestsHelpersStartApp['default'])();
-    });
-
-    (0, _mocha.afterEach)(function () {
-      (0, _dummyTestsHelpersDestroyApp['default'])(application);
-    });
-
-    (0, _mocha.it)('can visit /', function () {
-      visit('/');
-      click('#detailPodsId');
-      andThen(function () {
-        (0, _chai.expect)(currentPath()).to.equal('demo');
-      });
-    });
-  });
-  /* eslint-enable */
-});
-/* jshint expr:true */
 define('dummy/tests/blanket-options', ['exports'], function (exports) {
   /* globals blanket, module */
 
@@ -121,7 +97,7 @@ define('dummy/tests/integration/components/frost-details-pod-test', ['exports', 
               'name': 'missing-wrapper',
               'problems': ['wrong-type']
             },
-            'revision': 'Ember@2.3.2',
+            'revision': 'Ember@2.6.0',
             'loc': {
               'source': null,
               'start': {
@@ -182,7 +158,7 @@ define('dummy/tests/integration/components/frost-pods-test', ['exports', 'chai',
               'name': 'missing-wrapper',
               'problems': ['wrong-type']
             },
-            'revision': 'Ember@2.3.2',
+            'revision': 'Ember@2.6.0',
             'loc': {
               'source': null,
               'start': {

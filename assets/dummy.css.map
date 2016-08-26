@@ -3,11 +3,11 @@
 	"sourceRoot": "/Users/srowhani/workspace/ember-frost-pods/app/styles",
 	"file": "dummy.css",
 	"sources": [
-		"../../sass_compiler-input_base_path-R3rq1Piz.tmp/0/app/styles/app.scss",
-		"../../sass_compiler-input_base_path-R3rq1Piz.tmp/0/app/styles/_dummy-map-pods.scss",
-		"../../sass_compiler-input_base_path-R3rq1Piz.tmp/0/app/styles/_dummy-node-pods.scss",
-		"../../sass_compiler-input_base_path-R3rq1Piz.tmp/0/app/styles/_dummy-search-pods.scss",
-		"../../sass_compiler-input_base_path-R3rq1Piz.tmp/0/app/styles/_demo.scss"
+		"../../sass_compiler-input_base_path-7531ilUL.tmp/0/app/styles/app.scss",
+		"../../sass_compiler-input_base_path-7531ilUL.tmp/0/app/styles/_dummy-map-pods.scss",
+		"../../sass_compiler-input_base_path-7531ilUL.tmp/0/app/styles/_dummy-node-pods.scss",
+		"../../sass_compiler-input_base_path-7531ilUL.tmp/0/app/styles/_dummy-search-pods.scss",
+		"../../sass_compiler-input_base_path-7531ilUL.tmp/0/app/styles/_demo.scss"
 	],
 	"sourcesContent": [
 		"@import './dummy-map-pods';\n@import './dummy-node-pods';\n@import './dummy-search-pods';\n@import './demo';\n\n\n.dummy-notification-container {\n\tposition: fixed;\n\ttop: 60px;\n\tright: 10px;\n\tz-index: 999;\n\twidth: 80%;\n\tmax-width: 400px;\n\tmargin: auto;\n}\n\n.dummy-body {\n\theight: 100%;\n}\n\n.dummy-content {\n\tposition: relative;\n\theight: 100%;\n}\n\n.frost-tabs.iframe {\n\t.navigation {\n\t\tdisplay: none;\n\t}\n}\n",
