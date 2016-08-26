@@ -1137,15 +1137,9 @@ define('dummy/middleware/index', ['exports', 'npm:redux-thunk'], function (expor
 });
 define('dummy/mirage/config', ['exports'], function (exports) {
   exports['default'] = function () {
-    this.get('/dummy-records', function (db) {
+    this.get('/ember-frost-pods/dummy-records', function (db) {
       return {
-        data: db['dummy-records'].map(function (attrs) {
-          return {
-            type: 'dummy-records',
-            id: attrs.id,
-            attributes: attrs
-          };
-        })
+        data: db['dummy-records']
       };
     });
 
@@ -3939,7 +3933,13 @@ define('dummy/pods/demo/controller', ['exports', 'ember'], function (exports, _e
 define('dummy/pods/demo/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     model: function model() {
-      return this.get('store').findAll('dummy-record');
+      return new _ember['default'].RSVP.Promise(function (resolve, reject) {
+        _ember['default'].$.ajax('ember-frost-pods/dummy-records').then(function (result) {
+          resolve(result.data.map(function (el) {
+            return _ember['default'].Object.create(el);
+          }));
+        });
+      });
     },
 
     setupController: function setupController(controller, model) {
