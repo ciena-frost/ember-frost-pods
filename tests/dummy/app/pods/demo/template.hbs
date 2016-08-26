@@ -1,0 +1,51 @@
+<div class="dummy-body">
+  {{frost-notifier}}
+  {{outlet}}
+  <div class="dummy-content">
+    <div class="frost-pods-demo">
+      <div class="controls">
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'map')}}Map pods{{/frost-button}}
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'node')}}Node pods{{/frost-button}}
+        {{#frost-button class='medium secondary text' onClick=(action 'togglePods' 'search')}}Search pods{{/frost-button}}
+        {{#frost-button class='medium secondary text' id='detailPodsId' onClick=(action 'togglePods' 'detail')}}Detail pods{{/frost-button}}
+      </div>
+      {{dummy-map-pods isPodVisible=isMapPodVisible}}
+      {{dummy-node-pods isPodVisible=isNodePodVisible}}
+      {{dummy-search-pods isPodVisible=isSearchPodVisible records=dummyRecords}}
+
+      {{#frost-details-pod
+        menuActions=detailActions
+        isPodVisible=isDetailPodVisible
+        title="Details Pod"
+        subTitle="Subtitle"
+        description="Small description"
+        orientation=orientation
+        as |pod actions|}}
+        <div class="row">
+          <div class="property">
+            <div class="title">IP address</div>
+            <div class="value">192.0.1.2</div>
+          </div>
+          <div class="property" >
+            <div class="title">Lat, Long</div>
+            <div class="value">42.66, -73.76</div>
+          </div>
+        </div>
+        <div class="row">
+          {{#frost-list
+            class='frost-flex-1'
+            records=dummyRecords
+            selections=selectedItems
+            as |item|
+            }}
+              <div class='item'>
+                <div class='title'>
+                  {{item.alias}}
+                </div>
+              </div>
+          {{/frost-list}}
+        </div>
+      {{/frost-details-pod}}
+    </div>
+  </div>
+</div>
