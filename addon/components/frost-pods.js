@@ -25,7 +25,7 @@ export default Ember.Component.extend({
   }),
 
   init() {
-    this._super();
+    this._super(...arguments);
     this.set('podStack', Ember.A())
     this.get('podStack').addObject({
       id: 'root',
