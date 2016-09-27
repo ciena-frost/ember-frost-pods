@@ -39,8 +39,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/frost-pods'
+    ENV.baseURL = '/ember-frost-pods'
     ENV.isDemo = true
+    ENV.locationType = 'hash'
     ENV['ember-cli-mirage'] = {
       enabled: true
     }
