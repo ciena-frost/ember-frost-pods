@@ -28,15 +28,7 @@
       </div>
       <div class="bottom">
         {{#each menuActions as |item|}}
-          <div class="row">
-            {{#frost-button
-              class='text small'
-              priority=item.priority
-              onClick=(action item.action)
-            }}
-              {{item.text}}
-            {{/frost-button}}
-          </div>
+          {{component item}}
         {{/each}}
       </div>
     </div>

@@ -68,10 +68,11 @@
     "frost"
   ],
   "dependencies": {
+    "ember-array-helper": "^1.0.0",
     "ember-cli-babel": "^5.1.5",
-    "ember-computed-decorators": "^0.2.2",
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-sass": "^5.2.0",
+    "ember-computed-decorators": "^0.2.2",
     "liquid-fire": "^0.26.1"
   },
   "ember-addon": {
