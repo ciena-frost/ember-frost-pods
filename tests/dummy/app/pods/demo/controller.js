@@ -10,33 +10,6 @@ export default Controller.extend({
   dummyRecords: computed.alias('model'),
   orientation: 'vertical',
   podsVisibility: A(),
-  detailActions: A([
-    {
-      text: 'Details',
-      priority: 'primary',
-      action: function () {
-        this.get('targetObject.notifier').addNotification({
-          message: 'Details was clicked!',
-          type: 'success',
-          autoClear: true,
-          clearDuration: 1000
-        })
-      }
-    },
-    {
-      text: 'Rotate',
-      priority: 'secondary',
-      action: function () {
-        let orientation = this.get('orientation')
-        this.set(
-          'orientation',
-          orientation === 'vertical'
-            ? 'horizontal'
-            : 'vertical'
-        )
-      }
-    }
-  ]),
   isPodVisible (pod) {
     let podVisibility = this.get('podsVisibility').findBy('id', pod)
     if (podVisibility === undefined) {
@@ -63,7 +36,14 @@ export default Controller.extend({
 
   actions: {
     // TODO Revert to the initial pod on a canvas click
-
+    viewDetails () {
+      this.get('notifier').addNotification({
+        message: 'Details was clicked!',
+        type: 'success',
+        autoClear: true,
+        clearDuration: 1000
+      })
+    },
     togglePods (pod) {
       let podsVisibility = this.get('podsVisibility')
       if (podsVisibility.findBy('id', pod) === undefined) {

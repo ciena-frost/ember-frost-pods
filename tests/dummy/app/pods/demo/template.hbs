@@ -12,9 +12,23 @@
       {{dummy-map-pods isPodVisible=isMapPodVisible}}
       {{dummy-node-pods isPodVisible=isNodePodVisible}}
       {{dummy-search-pods isPodVisible=isSearchPodVisible records=dummyRecords}}
-
       {{#frost-details-pod
-        menuActions=detailActions
+        controls=(array
+          (component 'frost-button'
+            class='text medium padded'
+            text='Details'
+            priority='primary'
+            onClick=(action 'viewDetails')
+          )
+          (component 'frost-button'
+            class='text medium padded'
+            text='Rotate'
+            priority='secondary'
+            onClick=(action (mut orientation)
+              (if (eq orientation 'vertical') 'horizontal' 'vertical')
+            )
+          )
+        )
         isPodVisible=isDetailPodVisible
         title="Details Pod"
         subTitle="Subtitle"
