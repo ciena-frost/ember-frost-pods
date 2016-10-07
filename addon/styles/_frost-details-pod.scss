@@ -1,6 +1,7 @@
 @import 'node_modules/ember-frost-core/addon/styles/frost-theme';
 .frost-pods {
   &.frost-details-pod {
+    box-shadow: 0 1px 4px rgba($frost-color-grey-2, .25);
     .pod {
       &.context {
         display: (flex);
