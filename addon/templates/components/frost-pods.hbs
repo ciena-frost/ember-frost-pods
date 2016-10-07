@@ -1,1 +1,7 @@
-{{yield}}
+{{#liquid-bind currentPod class='liquid-pods' as |rendered|}}
+  {{#if currentPod}}
+    <div class='pod context'>
+      {{component rendered}}
+    </div>
+  {{/if}}
+{{/liquid-bind}}

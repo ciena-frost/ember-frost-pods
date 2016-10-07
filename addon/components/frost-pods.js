@@ -1,58 +1,49 @@
 import Ember from 'ember'
-import _ from 'lodash/lodash'
+import computed from 'ember-computed-decorators'
+import PropTypesMixin, {PropTypes} from 'ember-prop-types'
+import layout from 'ember-frost-pods/templates/components/frost-pods'
+import transitions from 'ember-frost-pods/transitions/frost-pods'
 
-export default Ember.Component.extend({
-  classNames: ['frost-pods'],
-  classNameBindings: ['orientation'],
-
-  orientation: 'vertical',
-
-  podNames: Ember.computed('podStack.[]', function () {
-    return _.dropRight(this.get('podStack').map(function (entry) {
-      return entry.alias
-    }), 1)
-  }),
-
-  podLayerAlias: Ember.computed('podStack.[]', function () {
-    return this.get('podStack.lastObject.alias')
-  }),
-
-  podStack: null,
-  podLayer: Ember.computed('podStack.[]', function () {
-    let podLayer = {}
-    podLayer[this.get('podStack.lastObject.id')] = true
-    return podLayer
-  }),
-
-  init() {
-    this._super(...arguments);
-    this.set('podStack', Ember.A())
-    this.get('podStack').addObject({
-      id: 'root',
-      alias: 'NodeD'
-    })
+const {
+  Component,
+  inject: {
+    service
   },
+  get,
+  set
+} = Ember
 
-  actions: {
-    openPod (id, alias) {
-      this.get('podStack').addObject({
-        id: id,
-        alias: alias
-      })
-    },
+export default Component.extend(PropTypesMixin, {
+  liquidFireTransitions: service(),
 
-    closePod () {
-      this.get('podStack').popObject()
-    },
+  classNames: [
+    'frost-pods'
+  ],
+  classNameBindings: [
+    'position'
+  ],
 
-    changePod (pod) {
-      _.dropRightWhile(this.get('podStack'), (n) => {
-        if (n.alias !== pod) {
-          this.get('podStack').popObject()
-          return true
-        }
-        return false
-      })
+  layout,
+  propTypes: {
+    position: PropTypes.string,
+    active: PropTypes.string,
+    customTransition: PropTypes.func
+  },
+  init() {
+    this._super(...arguments)
+
+    let liquidFireTransitions = get(this, 'liquidFireTransitions')
+    liquidFireTransitions.map(get(this, 'customTransition') || transitions)
+
+  },
+  @computed('active')
+  currentPod (active) {
+    return get(this, 'pods')[active]
+  },
+  getDefaultProps () {
+    return {
+      position: 'top right'
     }
-  }
+  },
+  actions: {}
 })

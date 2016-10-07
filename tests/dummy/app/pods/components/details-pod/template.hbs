@@ -1,0 +1,22 @@
+<div class="header">
+  <div class='icon'>
+    {{frost-icon icon=icon}}
+  </div>
+
+  <div class="title">
+    <div class="primary">{{title}}
+      <div class="comment">v2.0</div>
+    </div>
+    <div class='secondary'>
+      {{secondaryTitle}}
+    </div>
+  </div>
+</div>
+<div class='content'>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum eros id ipsum accumsan iaculis. Etiam pulvinar nibh nunc, vitae rutrum nisi condimentum non. Phasellus tincidunt sapien lorem, pharetra auctor lacus placerat in. Etiam pretium, nisi in mattis finibus, lacus lorem varius sem, vel lobortis odio nisl quis ante. Fusce at enim ornare, egestas risus sit amet, porta enim. Suspendisse rutrum erat nec odio ultrices, vel porttitor ante egestas. Pellentesque sodales neque in tellus tincidunt, quis gravida felis maximus.
+</div>
+<div class="bottom row">
+  {{#each-in menu as |key item|}}
+    {{component item}}
+  {{/each-in}}
+</div>
