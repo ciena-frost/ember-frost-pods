@@ -1,5 +1,3 @@
-# This repo is [DEPRECATED]
-
 [ci-img]: https://img.shields.io/travis/ciena-frost/ember-frost-pods.svg "Travis CI Build Status"
 [ci-url]: https://travis-ci.org/ciena-frost/ember-frost-pods
 
